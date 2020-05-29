@@ -20,8 +20,6 @@ Get-AzureADUser |where {$_.UserType -eq 'Guest'} `
 |Select-Object DisplayName, @{l="MailNickname";e={ $_.MailNickname.replace("_","@").replace("#EXT#","")}}`
 | Export-CSV C:\GuestUsers.csv
 
-Get-ChildItem C:\GuestUsers.csv |Select-Object Length
-
 # Import csv and add the user as guest  
 Connect-ExchangeOnline 
 Import-CSV C:\GuestUsers.csv | % { Add-UnifiedGroupLinks -LinkType Members `
