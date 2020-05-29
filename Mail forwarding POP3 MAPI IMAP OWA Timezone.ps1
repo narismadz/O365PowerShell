@@ -46,14 +46,20 @@ Get-Mailbox -Identity "admin" | format-list ForwardingSmtpAddress
 
 #InBulk for user under domain below (exclude guest and unlicensed)
 
-$Domain = "M365x171520.onmicrosoft.com" 
+### this is for the case that all user has the same alias ###
 
+#Source domain
+$Domain = "mecth.com" 
+
+# your forwarding email domain
+$smtptarget = "M365x171520.onmicrosoft.com" 
 
 
 Connect-MsolService
-Get-MsolUser -DomainName $Domain -All |? {$_.UserType -eq "Member" -and $_.IsLicensed -eq "True"} `
-    | | Export-CSV C:\UsersLicensed.csv 
 
+Get-MsolUser -DomainName $Domain -All |? {$_.UserType -eq “Member” -and $_.IsLicensed -eq “True”} `
+| Select UserPrincipalName, @{l="smtptarget";e={ $_.UserPrincipalName.replace($Domain,$smtptarget)}}`
+| Export-CSV C:\UsersLicensed2.csv
 
 
 #### MAPI POP3 IMAP OWA ####
@@ -70,7 +76,8 @@ Import-CSV C:\UsersLicensed.csv |%{Set-CASMailbox $_.UserPrincipalName `
 #### Mail Forwarding ####
 
 #For bulk mail forwarding
-# at smtptargetcolumn use excel formula =LEFT(A3,FIND("@",A3)-1) && "@mecth3.com"
+
+### this is for the case that all user has the same alias ###
    
 Import-CSV C:\UsersLicensed.csv | % { Set-Mailbox $_.UserPrincipalName -ForwardingSmtpAddress `
 $_.smtptarget  }
