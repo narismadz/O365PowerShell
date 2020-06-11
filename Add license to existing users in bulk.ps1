@@ -12,7 +12,7 @@ Get-MsolAccountSku |ft AccountSkuId
 
 Get-MsolUser -MaxResults 20 |ft UserPrincipalName, UsageLocation
 
-# Add license
+# Add license Ex. company name is bangkok365, country = Thailand
 
 $AccountSkuId = "bangkok365:STANDARDPACK"
 $UsageLocation = "TH"
