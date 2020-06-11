@@ -1,4 +1,15 @@
-﻿## Input your Office 365 group or team name (MS Teams) here
+<#
+
+This will create some sync time form Office 365 Group to Teams
+ 
+If you want to see immediate result in MS Team you can
+- create distribution group and bulk adding user in it (see my - Add bulk user to Distribution List.ps1)
+- add that DL in your specified team in Teams client as member 
+
+#>
+
+
+## Input your Office 365 group or team name (MS Teams) here
 $Identity = "Externals" 
 
 #install Azure AD PowerShell Module 
