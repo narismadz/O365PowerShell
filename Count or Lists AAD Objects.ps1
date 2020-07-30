@@ -34,3 +34,7 @@ Get-AzureADUser -all $true | Where {$_.DirSyncEnabled -eq $null}
 # Count license and quotas
 Get-AzureADSubscribedSku | select SkuPartNumber,ConsumedUnits -ExpandProperty PrepaidUnits
 
+# To see quotas used in AAD tenant use graph api, go https://aka.ms/ge to and sign in 
+# GET method, version Beta
+# https://graph.microsoft.com/v1.0/organization/
+
