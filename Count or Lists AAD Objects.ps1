@@ -37,4 +37,14 @@ Get-AzureADSubscribedSku | select SkuPartNumber,ConsumedUnits -ExpandProperty Pr
 # To see quotas used in AAD tenant use graph api, go https://aka.ms/ge to and sign in 
 # GET method, version Beta
 # https://graph.microsoft.com/v1.0/organization/
+# list under
+<# 
+
+"directorySizeQuota": {
+"used": xxxx,
+"total": 300000
+},
+
+
+#>
 
