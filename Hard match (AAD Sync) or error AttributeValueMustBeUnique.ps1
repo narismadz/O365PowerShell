@@ -2,6 +2,9 @@
 
 ## or see error like AttributeValueMustBeUnique
 
+#if can't install AzureADPreview or MSOnline run this command
+# [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 # Install module required
 Install-Module -Name AzureADPreview
 Install-Module MSOnline
