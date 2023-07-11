@@ -1,9 +1,9 @@
 # Input your csv file path here
 $csvPath = "C:\Import-User-Password.csv"
 # Name your group here
-$SGGroupName = "M365-A5-users-PowerBI"
+$SGGroupName = "M365-A3-users-PowerBI"
 # specify license
-$License = "M365EDU_A5_FACULTY","POWER_BI_PRO_FACULTY"
+$License = "M365EDU_A3_FACULTY","POWER_BI_PRO_FACULTY"
 
 
 Connect-MgGraph -Scopes User.ReadWrite.All, Organization.Read.All, Group.ReadWrite.All
