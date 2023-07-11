@@ -1,7 +1,7 @@
 # Input your csv file path here
 $csvPath = "C:\Import-User-Password.csv"
 # Name your group here
-$SGGroupName = "M365-A5-users"
+$SGGroupName = "M365-A5-users-PowerBI"
 # specify license
 $License = "M365EDU_A5_FACULTY","POWER_BI_PRO_FACULTY"
 
