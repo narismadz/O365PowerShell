@@ -11,7 +11,7 @@ Connect-MicrosoftTeams
 
 Import-Csv -Path $csvPath | foreach {
 
-Write-Host "Add number:" $_.PhoneNumber + " User:" + $_.Email `
+Write-Host "Add number:" $_.PhoneNumber " User: " $_.Email `
 -ForegroundColor Green
 
 
